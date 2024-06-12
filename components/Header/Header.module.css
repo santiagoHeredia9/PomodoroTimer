@@ -16,6 +16,12 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .button{
+    left: 25px;
+  }
+}
+
 
 
 

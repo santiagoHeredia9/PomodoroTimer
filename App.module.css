@@ -33,5 +33,9 @@ body {
       "history";
     grid-template-columns: 1fr;
     grid-template-rows: .3fr 1fr .5fr;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }

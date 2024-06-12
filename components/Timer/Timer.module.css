@@ -94,6 +94,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .container{
+    width: 90vw;
+  
+  }
   .cronometro {
  
     font-size: 4rem;
@@ -111,7 +115,7 @@
   }
 
   .blocks{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 500;
   }
 }
