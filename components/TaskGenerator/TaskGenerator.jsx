@@ -90,11 +90,12 @@ export function TaskGenerator() {
             {appear && <Plus className={styles.plus} />}
           </button>
         )}
-        <button className={`${styles.hide} ${appear ? styles.hideButton : ""}`} onClick={() => setAppear(!appear)}>
-          {language === "es" ? "Añadir tarea" : "Add task"}{" "}
-          <Plus className={styles.plus} />
+        <button
+          className={`${styles.hide} ${appear ? styles.hideButton : ""}`}
+          onClick={() => setAppear(!appear)}
+        >
+          {language === "es" ? "Añadir tarea" : "Add task"}
         </button>
-     
       </div>
 
       <div className={styles.task}>
