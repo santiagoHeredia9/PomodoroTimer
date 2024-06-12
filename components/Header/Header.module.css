@@ -1,0 +1,22 @@
+
+.button {
+  color: rgb(255, 255, 255);
+  height: 50px;
+  width: 50px;
+  background-color: rgb(73, 73, 73);
+  border: none;
+  position: absolute;
+  left: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.1s ease-in;
+  &:hover {
+   transform:  scale(1.1);
+   background-color: rgb(125, 125, 125);
+  }
+}
+
+
+
+
+
