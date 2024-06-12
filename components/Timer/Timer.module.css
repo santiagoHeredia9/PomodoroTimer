@@ -9,14 +9,12 @@
   height: 93vh;
   margin: 0 auto;
   font-family: "Roboto Mono", monospace;
-  gap: 20px;
+  gap: 10px;
   background-color: rgb(76, 76, 76);
   border-radius: 20px;
   color: white;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
-
 }
-
 
 .cronometro {
   font-weight: bold;
@@ -36,26 +34,23 @@
   gap: 20px;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-  Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.stop{
+.stop {
   width: 50px;
   height: 50px;
   color: rgb(255, 255, 255);
   cursor: pointer;
-  &:hover{
+  &:hover {
     scale: 1.1;
     color: rgb(232, 55, 55);
   }
- 
 }
 
-.restart:hover{
-  color: rgb(243, 191, 0)
+.restart:hover {
+  color: rgb(243, 191, 0);
 }
-
 
 .buttonPlay {
   width: 50px;
@@ -88,34 +83,37 @@
   }
 }
 
-.blocks{
+.blocks {
   font-size: 1.8rem;
   font-weight: 600;
 }
 
 @media screen and (max-width: 768px) {
-  .container{
+  .container {
     width: 100%;
-  
+    gap: 0px;
   }
   .cronometro {
- 
-    font-size: 4rem;
+    font-size: 3.5rem;
     letter-spacing: 4px;
   }
 
-  .buttonPlay{
-    width: 40px;
-    height: 40px;
+  .buttonPlay {
+    width: 30px;
+    height: 30px;
   }
 
-  .stop{
-    width: 40px;
-    height: 40px;
+  .stop {
+    width: 30px;
+    height: 30px;
   }
 
-  .blocks{
-    font-size: 1.2rem;
+  .blocks {
+    font-size: 1.1rem;
     font-weight: 500;
+  }
+
+  .interaction {
+    gap: 15px;
   }
 }
