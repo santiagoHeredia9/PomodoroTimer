@@ -61,8 +61,10 @@ export function Timer() {
         setTimeLapse(0);
         setTiempoRestante(25 * 60);
       }
-    } else{
-      alert(language === "es" ? "Debe iniciar una actividad" : "Must start a task");
+    } else {
+      alert(
+        language === "es" ? "Debe iniciar una actividad" : "Must start a task"
+      );
     }
   };
 
@@ -142,9 +144,7 @@ export function Timer() {
 
   return (
     <main className={styles.container}>
-      <TaskGenerator />
-
-      <div>
+      <div className={styles.cronometroContainer}>
         {completed ? (
           <p className={styles.completed}>
             {language === "es"
@@ -156,15 +156,6 @@ export function Timer() {
             segundos < 10 ? "0" : ""
           }${segundos}`}</p>
         )}
-      </div>
-      {completed ? (
-        <RestartIcon
-          className={styles.restart}
-          width="50"
-          height="50"
-          onClick={handleRestart}
-        />
-      ) : (
         <div className={styles.interaction}>
           <span onClick={handleClick}>
             {isRunning ? (
@@ -178,15 +169,18 @@ export function Timer() {
             <StopIcon className={styles.stop} width="50" height="50" />
           </span>
         </div>
+      </div>
+      {completed && (
+        <RestartIcon
+          className={styles.restart}
+          width="50"
+          height="50"
+          onClick={handleRestart}
+        />
       )}
 
-      <p className={styles.blocks}>
-        {completed
-          ? ""
-          : language === "es"
-          ? `Bloques completados ${block} / ${totalBlocks}`
-          : `Blocks completed ${block} / ${totalBlocks}`}
-      </p>
+
+      <TaskGenerator />
     </main>
   );
 }

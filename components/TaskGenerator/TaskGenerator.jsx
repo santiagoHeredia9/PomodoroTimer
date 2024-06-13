@@ -3,7 +3,6 @@ import { useGlobalTask } from "../../store/global-task.js";
 import { useGlobalCounter } from "../../store/global-counter";
 import styles from "./TaskGenerator.module.css";
 import { useEffect, useState } from "react";
-import Plus from "../icons/Plus.jsx";
 import Remove from "../icons/Remove.jsx";
 import { workTime } from "../consts.js";
 import { useGlobalLanguage } from "../../store/global-language.js";
@@ -47,6 +46,7 @@ export function TaskGenerator() {
   };
 
   const handleDelete = () => {
+    setAppear(false);
     setCurrentTask("");
     setData("");
     setTiempoRestante(workTime);
@@ -57,15 +57,15 @@ export function TaskGenerator() {
   return (
     <section className={styles.container}>
       <div className={styles.add}>
-        {currentTask ? (
-          <input
-            className={`${styles.input}`}
-            type="text"
-            disabled
-            onChange={handleChange}
-            value={data}
-          ></input>
-        ) : (
+        <div className={styles.task}>
+          <Task currentTask={currentTask} setCurrentTask={setCurrentTask} />
+        </div>
+        <div className={`${styles.addTask} ${appear ? styles.appear : ""}`}>
+          <button onClick={() => setAppear(!appear)}>
+            {language === "es" ? "Añadir tarea +" : "Add task +"}
+          </button>
+        </div>
+        <div className={`${styles.newTask} ${appear ? styles.appearNew : ""}`}>
           <input
             type="text"
             onChange={handleChange}
@@ -73,33 +73,27 @@ export function TaskGenerator() {
             placeholder={
               language === "es" ? "Escribe la tarea" : "Write the task"
             }
-            className={`${styles.input} ${appear ? styles.appear : ""}`}
+            className={styles.input}
           ></input>
-        )}
-
-        {currentTask ? (
-          <button onClick={handleDelete} className={styles.removeButton}>
-            {language === "es" ? "Eliminar tarea" : "Delete task"}{" "}
-            <Remove className={styles.remove} />
-          </button>
-        ) : (
-          <button
-            onClick={handleClick}
-            className={`${styles.button} ${appear ? styles.appearButton : ""}`}
-          >
-            {appear && <Plus className={styles.plus} />}
-          </button>
-        )}
-        <button
-          className={`${styles.hide} ${appear ? styles.hideButton : ""}`}
-          onClick={() => setAppear(!appear)}
-        >
-          {language === "es" ? "Añadir tarea" : "Add task"}
-        </button>
-      </div>
-
-      <div className={styles.task}>
-        <Task currentTask={currentTask} setCurrentTask={setCurrentTask} />
+          <div className={styles.buttons}>
+            <button className={styles.buttonAdd} onClick={handleClick}>
+              Add
+            </button>
+            {!currentTask ? (
+              <button
+                className={styles.buttonCancel}
+                onClick={() => setAppear(false)}
+              >
+                Cancel
+              </button>
+            ) : (
+              <button className={styles.buttonRemove} onClick={handleDelete}>
+                {language === "es" ? "Eliminar" : "Delete"}
+                <Remove className={styles.rem} />
+              </button>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );
