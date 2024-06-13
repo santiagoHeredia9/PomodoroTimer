@@ -153,16 +153,27 @@
 @media screen and (max-width: 768px) {
   .input {
     border: none;
+    border-bottom: 2PX solid white;
     background: none;
     height: 20px;
     margin-top: 10px;
-    width: 0px;
+    width: 80%;
     transition: width 0.3s ease-in;
     font-size: 1rem;
     padding: 5px;
     outline: none;
     color: white;
   }
+
+  .buttonAdd, .buttonCancel, .buttonRemove{
+    font-size: .9rem;
+   border: none;
+  }
+
+  .buttons{
+    gap: 30px;
+  }
+
 
   .task {
     max-width: 60vh;
